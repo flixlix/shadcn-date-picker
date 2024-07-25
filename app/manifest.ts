@@ -1,11 +1,11 @@
+import { siteConfig } from "@/config/site"
 import { MetadataRoute } from "next"
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Shadcn Date Picker",
-    short_name: "Shadcn Date Picker",
-    description:
-      "Advanced date picker with range selection, year and month selection, and more.",
+    name: siteConfig.title,
+    short_name: siteConfig.title,
+    description: siteConfig.description,
     start_url: "/",
     display: "standalone",
     background_color: "#fff",

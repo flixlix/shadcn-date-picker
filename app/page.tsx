@@ -9,7 +9,7 @@ import {
   TimelineLine,
 } from "@/components/ui/timeline"
 import { siteConfig } from "@/config/site"
-import { Coffee, Package } from "lucide-react"
+import { Coffee, Info, Package } from "lucide-react"
 import Link from "next/link"
 import CalendarCode from "./_components/code-blocks/calendar-code"
 import CopyCode from "./_components/code-blocks/copy-code"
@@ -39,8 +39,43 @@ export default function Home() {
       </section>
       <Timeline>
         <TimelineItem status="done">
-          <TimelineHeading>Update the Calendar component</TimelineHeading>
+          <TimelineHeading>Install react-day-picker</TimelineHeading>
           <TimelineDot status="current" />
+          <TimelineLine />
+          <TimelineContent className="flex w-full flex-col gap-y-4 overflow-hidden text-balance pt-4">
+            <div className="prose">
+              <p>
+                Install the package by running the following command in your
+                terminal:{" "}
+                <code className="whitespace-pre rounded bg-slate-200/50 p-1 text-xs dark:bg-slate-500/20">
+                  pnpm add react-day-picker@9.0.4
+                </code>
+                <br />
+              </p>
+            </div>
+            <Alert>
+              <Info className="size-4" />
+              <AlertTitle>Note</AlertTitle>
+              <AlertDescription>
+                It is important to have at least the version 9 of the
+                react-day-picker package installed.
+              </AlertDescription>
+            </Alert>
+            <div className="prose">
+              <p>
+                For more information on how to install the package, check the
+                official documentation for getting started{" "}
+                <Link href="https://daypicker.dev/start" target="_blank">
+                  here
+                </Link>
+                .
+              </p>
+            </div>
+          </TimelineContent>
+        </TimelineItem>
+        <TimelineItem>
+          <TimelineHeading>Update the Calendar component</TimelineHeading>
+          <TimelineDot />
           <TimelineLine />
           <TimelineContent className="flex w-full flex-col gap-y-4 overflow-hidden text-balance pt-4">
             <Alert variant="warning">

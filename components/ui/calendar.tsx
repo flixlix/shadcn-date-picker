@@ -33,8 +33,8 @@ function Calendar({
     React.useMemo(() => {
       const currentYear = new Date().getFullYear()
       return {
-        from: currentYear - Math.floor(yearRange / 2),
-        to: currentYear + Math.ceil(yearRange / 2 - 1),
+        from: currentYear - Math.floor(yearRange / 2 - 1),
+        to: currentYear + Math.ceil(yearRange / 2),
       }
     }, [yearRange])
   )

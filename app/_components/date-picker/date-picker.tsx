@@ -35,7 +35,6 @@ export default function DatePicker() {
           mode="single"
           selected={date}
           onSelect={setDate}
-          yearRange={20}
           autoFocus
           startMonth={new Date(1999, 11)}
           endMonth={new Date(2025, 2)}

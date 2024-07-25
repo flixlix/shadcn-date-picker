@@ -1,6 +1,7 @@
 import Breadcrumbs from "@/components/breadcrumbs"
 import Footer from "@/components/footer/footer"
 import Header from "@/components/header"
+import { Toaster } from "@/components/ui/sonner"
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
@@ -70,6 +71,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <Header />
             <Breadcrumbs />
             {children}
+            <Toaster richColors />
             <Footer />
           </ThemeProvider>
           <Analytics />

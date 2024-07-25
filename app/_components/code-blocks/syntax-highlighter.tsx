@@ -1,9 +1,15 @@
 "use client"
 
+import { useTheme } from "next-themes"
 import { PrismAsyncLight } from "react-syntax-highlighter"
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism"
+
+import {
+  coyWithoutShadows,
+  vscDarkPlus,
+} from "react-syntax-highlighter/dist/esm/styles/prism"
 
 export default function SyntaxHighlighter({ code }: { code: string }) {
+  const { resolvedTheme } = useTheme()
   return (
     <PrismAsyncLight
       language="typescript"
@@ -11,11 +17,17 @@ export default function SyntaxHighlighter({ code }: { code: string }) {
       wrapLongLines
       customStyle={{
         borderWidth: "1px",
+        boxShadow: "none",
+        paddingTop: "1rem",
+        borderLeft: "1px solid hsl(var(--border)) !important",
+        borderTop: "1px solid hsl(var(--border)) !important",
+        borderBottom: "1px solid hsl(var(--border)) !important",
+        borderRight: "1px solid hsl(var(--border))",
         borderColor: "hsl(var(--border))",
-        borderRadius: "var(--radius)",
-        backgroundColor: "hsl(var(--card))",
+        borderRadius: "var(--radius) !important",
+        background: "hsl(var(--card))",
       }}
-      style={vscDarkPlus}
+      style={resolvedTheme === "dark" ? vscDarkPlus : coyWithoutShadows}
     >
       {code}
     </PrismAsyncLight>

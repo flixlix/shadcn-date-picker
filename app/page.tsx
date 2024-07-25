@@ -21,15 +21,20 @@ export default function Home() {
     <main className="container relative flex max-w-[768px] flex-1 flex-col gap-10 py-10 typography-h2:mt-6">
       <section className="prose">
         <h2>Introduction</h2>
-        <h3>What is this?</h3>
+        <DemoDisplay>
+          <DatePicker />
+        </DemoDisplay>
         <p>
           This custom shadcn component aims to provide a more advanced
           alternative to the default date picker component. It is built on top
           of the{" "}
-          <code className="whitespace-pre rounded bg-slate-100/50 p-1 text-xs dark:bg-slate-500/20">
+          <code className="whitespace-pre rounded bg-slate-200/50 p-1 text-xs dark:bg-slate-500/20">
             react-day-picker
           </code>{" "}
           library, which provides a wide range of customization options.
+          <br />
+          In the demo above, notice that you can click on the moth label at the
+          top to change the view to years.
         </p>
       </section>
       <Timeline>
@@ -45,7 +50,7 @@ export default function Home() {
                 In case you have already used the calendar or date picker
                 component from shadcn, you will need to update it with the
                 following content. We are using{" "}
-                <code className="whitespace-pre rounded bg-slate-100/50 p-1 text-xs dark:bg-slate-500/20">
+                <code className="whitespace-pre rounded bg-slate-200/50 p-1 text-xs dark:bg-slate-500/20">
                   react-day-picker
                 </code>{" "}
                 version 9, while shadcn is still on v8, which are not compatible
@@ -62,7 +67,7 @@ export default function Home() {
                   here
                 </Link>
                 .<br /> Once you have a working project with shadcn, create a{" "}
-                <code className="whitespace-pre rounded bg-slate-100/50 p-1 text-xs dark:bg-slate-500/20">
+                <code className="whitespace-pre rounded bg-slate-200/50 p-1 text-xs dark:bg-slate-500/20">
                   /components/ui/calendar.tsx
                 </code>{" "}
                 file and paste the following code:

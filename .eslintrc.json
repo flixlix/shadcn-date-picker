@@ -1,0 +1,62 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:@next/next/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "tailwindcss",
+    "prettier"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx",
+        "*.js"
+      ],
+      "parser": "@typescript-eslint/parser"
+    }
+  ],
+  "settings": {
+    "tailwindcss": {
+      "callees": [
+        "cn",
+        "cva"
+      ],
+      "classRegex": [
+        // anything that ends with ClassName
+        "ClassName$",
+        "className"
+      ]
+    }
+  },
+  "rules": {
+    "tailwindcss/classnames-order": [
+      "error",
+      {
+        "callees": [
+          "cn",
+          "cva"
+        ]
+      }
+    ],
+    // Enforce typesafety for Tailwind CSS classnames
+    // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/master/docs/rules/no-custom-classname.md
+    "tailwindcss/no-custom-classname": [
+      "error",
+      {
+        "whitelist": [
+          // white list any classname which does NOT start with `bg-` and `text-`
+          "(?!(bg|text)\\-).*"
+        ]
+      }
+    ],
+    // Avoid contradicting Tailwind CSS classnames
+    // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/master/docs/rules/no-contradicting-classname.md
+    "tailwindcss/no-contradicting-classname": "error",
+    // Format with prettier before eslint
+    // https://github.com/prettier/prettier-eslint
+    "prettier/prettier": "warn"
+  }
+}

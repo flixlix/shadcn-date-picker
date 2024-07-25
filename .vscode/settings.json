@@ -1,0 +1,17 @@
+{
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    ".*Styles.*",
+    ".*Classname",
+    ".*ClassName"
+  ],
+  "material-icon-theme.folders.associations": {
+    "stores": "stack",
+    "_actions": "decorators",
+    "queries": "api",
+    "ui": "interface",
+    "dashboard": "stack"
+  }
+}

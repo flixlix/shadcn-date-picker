@@ -22,6 +22,7 @@ function Calendar({
   classNames,
   showOutsideDays = true,
   yearRange = 12,
+  numberOfMonths,
   ...props
 }: CalendarProps) {
   const [navView, setNavView] = React.useState<"days" | "years">("days")
@@ -40,10 +41,15 @@ function Calendar({
 
   const { onNextClick, onPrevClick, startMonth, endMonth } = props
 
+  const monthsDisplayed = navView === "years" ? 1 : numberOfMonths
+
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
       className={cn("w-[248.8px] p-3", className)}
+      style={{
+        width: 248.8 * (monthsDisplayed ?? 1) + "px",
+      }}
       classNames={{
         months: "flex flex-col relative sm:flex-row gap-y-4 sm:gap-y-0",
         month_caption: "flex justify-center h-7 mx-10 relative items-center",
@@ -68,22 +74,22 @@ function Calendar({
         ),
         nav: "flex items-start",
         month_grid: "mt-4",
-        table: "w-full border-collapse gap-y-1 mt-4",
         week: "flex w-full mt-2",
-        day: "p-0 rounded-md hover:bg-accent hover:aria-selected:bg-primary hover:text-accent-foreground hover:aria-selected:text-primary-foreground",
+        day: "p-0 hover:!bg-accent rounded-md hover:aria-selected:bg-primary hover:text-accent-foreground hover:aria-selected:text-primary-foreground",
         day_button: cn(
           buttonVariants({ variant: "ghost" }),
-          "size-8 p-0 font-normal hover:bg-transparent hover:text-inherit aria-selected:opacity-100"
+          "size-8 p-0 font-normal transition-none hover:bg-transparent hover:text-inherit aria-selected:opacity-100"
         ),
-        range_end: "day-range-end",
+        range_start: "day-range-start rounded-s-md",
+        range_end: "day-range-end rounded-e-md",
         selected:
-          "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground",
+          "bg-primary text-primary-foreground hover:!bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground",
         today: "bg-accent text-accent-foreground",
         outside:
           "day-outside text-muted-foreground opacity-50 aria-selected:bg-accent/50 aria-selected:text-muted-foreground aria-selected:opacity-30",
         disabled: "text-muted-foreground opacity-50",
         range_middle:
-          "aria-selected:bg-accent aria-selected:text-accent-foreground",
+          "aria-selected:bg-accent hover:aria-selected:!bg-accent rounded-none aria-selected:text-accent-foreground hover:aria-selected:text-accent-foreground",
         hidden: "invisible",
         ...classNames,
       }}
@@ -283,6 +289,7 @@ function Calendar({
           )
         },
       }}
+      numberOfMonths={monthsDisplayed}
       {...props}
     />
   )

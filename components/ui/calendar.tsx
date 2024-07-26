@@ -14,6 +14,10 @@ import { cn } from "@/lib/utils"
 import { differenceInCalendarDays } from "date-fns"
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
+  /**
+   * In the year view, the number of years to display at once.
+   * @default 12
+   */
   yearRange?: number
 }
 
@@ -41,14 +45,14 @@ function Calendar({
 
   const { onNextClick, onPrevClick, startMonth, endMonth } = props
 
-  const monthsDisplayed = navView === "years" ? 1 : numberOfMonths
+  const columnsDisplayed = navView === "years" ? 1 : numberOfMonths
 
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
-      className={cn("w-[248.8px] p-3", className)}
+      className={cn("p-3", className)}
       style={{
-        width: 248.8 * (monthsDisplayed ?? 1) + "px",
+        width: 248.8 * (columnsDisplayed ?? 1) + "px",
       }}
       classNames={{
         months: "flex flex-col relative sm:flex-row gap-y-4 sm:gap-y-0",
@@ -75,7 +79,7 @@ function Calendar({
         nav: "flex items-start",
         month_grid: "mt-4",
         week: "flex w-full mt-2",
-        day: "p-0 hover:!bg-accent rounded-md hover:aria-selected:bg-primary hover:text-accent-foreground hover:aria-selected:text-primary-foreground",
+        day: "p-0 size-8 text-sm flex-1 flex items-center justify-center has-[button]:hover:!bg-accent rounded-md has-[button]:hover:aria-selected:!bg-primary has-[button]:hover:text-accent-foreground has-[button]:hover:aria-selected:text-primary-foreground",
         day_button: cn(
           buttonVariants({ variant: "ghost" }),
           "size-8 p-0 font-normal transition-none hover:bg-transparent hover:text-inherit aria-selected:opacity-100"
@@ -155,7 +159,7 @@ function Calendar({
             }
             goToMonth(previousMonth)
             onPrevClick?.(previousMonth)
-          }, [previousMonth, goToMonth, onPrevClick])
+          }, [previousMonth, goToMonth])
 
           const handleNextClick = React.useCallback(() => {
             if (!nextMonth) return
@@ -175,12 +179,12 @@ function Calendar({
             }
             goToMonth(nextMonth)
             onNextClick?.(nextMonth)
-          }, [goToMonth, nextMonth, onNextClick])
+          }, [goToMonth, nextMonth])
           return (
             <nav className={cn("flex items-center", className)} {...props}>
               <Button
                 variant="outline"
-                className="absolute left-0 h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100"
+                className="absolute left-0 h-7 w-7 bg-transparent p-0 opacity-80 hover:opacity-100"
                 type="button"
                 tabIndex={isPreviousDisabled ? undefined : -1}
                 disabled={isPreviousDisabled}
@@ -198,7 +202,7 @@ function Calendar({
 
               <Button
                 variant="outline"
-                className="absolute right-0 h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100"
+                className="absolute right-0 h-7 w-7 bg-transparent p-0 opacity-80 hover:opacity-100"
                 type="button"
                 tabIndex={isNextDisabled ? undefined : -1}
                 disabled={isNextDisabled}
@@ -258,9 +262,9 @@ function Calendar({
                       <Button
                         key={i}
                         className={cn(
-                          "h-7 w-full",
+                          "h-7 w-full text-sm font-normal text-foreground",
                           displayYears.from + i === new Date().getFullYear() &&
-                            "bg-accent text-accent-foreground"
+                            "bg-accent font-medium text-accent-foreground"
                         )}
                         variant="ghost"
                         onClick={() => {
@@ -289,7 +293,7 @@ function Calendar({
           )
         },
       }}
-      numberOfMonths={monthsDisplayed}
+      numberOfMonths={columnsDisplayed}
       {...props}
     />
   )

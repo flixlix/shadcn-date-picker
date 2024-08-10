@@ -1,5 +1,8 @@
 "use client"
 
+import { Button, buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import { differenceInCalendarDays } from "date-fns"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import * as React from "react"
 import {
@@ -7,13 +10,10 @@ import {
   labelNext,
   labelPrevious,
   useDayPicker,
+  type DayPickerProps,
 } from "react-day-picker"
 
-import { Button, buttonVariants } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-import { differenceInCalendarDays } from "date-fns"
-
-export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
+export type CalendarProps = DayPickerProps & {
   /**
    * In the year view, the number of years to display at once.
    * @default 12
@@ -55,7 +55,7 @@ function Calendar({
         width: 248.8 * (columnsDisplayed ?? 1) + "px",
       }}
       classNames={{
-        months: "flex flex-col relative sm:flex-row gap-y-4 sm:gap-y-0",
+        months: "flex flex-col relative",
         month_caption: "flex justify-center h-7 mx-10 relative items-center",
         weekdays: "flex flex-row",
         weekday: "text-muted-foreground w-8 font-normal text-[0.8rem]",

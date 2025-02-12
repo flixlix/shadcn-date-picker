@@ -64,6 +64,7 @@ function Calendar({
   showYearSwitcher = true,
   yearRange = 12,
   numberOfMonths,
+  components,
   ...props
 }: CalendarProps) {
   const [navView, setNavView] = React.useState<NavView>("days")
@@ -232,6 +233,7 @@ function Calendar({
             {...props}
           />
         ),
+        ...components,
       }}
       numberOfMonths={columnsDisplayed}
       {...props}

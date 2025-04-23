@@ -21,7 +21,7 @@ export default async function RangePickerCode() {
           Alternatively, you can view this demo code in the{" "}
           <Link
             target="_blank"
-            href={`https://github.com/flixlix/shadcn-date-picker/blob/main/${path}`}
+            href={`https://github.com/flixlix/shadcn-date-picker/blob/main/src/${path}`}
           >
             repository
           </Link>

@@ -11,4 +11,4 @@
 ## Introduction
 
 This custom shadcn component aims to provide a more advanced alternative to the default date picker component. It is built on top of the react-day-picker library, which provides a wide range of customization options.
-In the demo above, notice that you can click on the moth label at the top to change the view to years.
+In the demo above, notice that you can click on the month label at the top to change the view to years.

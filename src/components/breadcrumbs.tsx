@@ -1,9 +1,10 @@
 "use client"
+
+import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { humanizeString } from "@/utils/humanize-string"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { buttonVariants } from "./ui/button"
 
 function Separator() {
   return (

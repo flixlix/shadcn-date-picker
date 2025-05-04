@@ -1,12 +1,12 @@
-import { fetchRepoContent } from "@/app/api/github-req/fetch-repo-content"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertOctagon } from "lucide-react"
 import Link from "next/link"
+import { fetchRepoContent } from "../lib/fetch-repo-content"
 import SyntaxHighlighter from "./syntax-highlighter"
 
-const path = "features/date-picker/date-range-picker.tsx"
+const path = "src/features/date-picker/date-picker.tsx"
 
-export default async function RangePickerCode() {
+export default async function DatePickerCode() {
   const response = await fetchRepoContent(path).catch(
     () => ({ ok: false }) as Response
   )
@@ -21,7 +21,7 @@ export default async function RangePickerCode() {
           Alternatively, you can view this demo code in the{" "}
           <Link
             target="_blank"
-            href={`https://github.com/flixlix/shadcn-date-picker/blob/main/${path}`}
+            href={`https://github.com/flixlix/shadcn-date-picker/blob/main/src/${path}`}
           >
             repository
           </Link>
@@ -35,7 +35,7 @@ export default async function RangePickerCode() {
     <div className="grid max-w-full overflow-x-scroll">
       <div className="relative grid w-full overflow-hidden">
         <p className="px-4 text-sm font-medium text-foreground">
-          components/date-range-picker.tsx
+          components/date-picker.tsx
         </p>
         <div className="relative overflow-hidden rounded-md bg-zinc-950">
           <SyntaxHighlighter lang="tsx">{content}</SyntaxHighlighter>

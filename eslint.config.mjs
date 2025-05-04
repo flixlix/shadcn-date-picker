@@ -110,6 +110,7 @@ export default [
             "src/drizzle/**/*",
             "src/hooks/**/*",
             "src/lib/**/*",
+            "src/utils/**/*",
             "src/server/**/*",
             "src/providers/**/*",
             "src/config/**/*",

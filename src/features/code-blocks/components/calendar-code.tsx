@@ -1,10 +1,10 @@
-import { fetchRepoContent } from "@/app/api/github-req/fetch-repo-content"
+import { fetchRepoContent } from "../lib/fetch-repo-content"
 import CodeBlockWrapper from "./code-block-wrapper"
 import CopyCode from "./copy-code"
 import SyntaxHighlighter from "./syntax-highlighter"
 
 export default async function CalendarCode() {
-  const response = await fetchRepoContent("components/ui/calendar.tsx")
+  const response = await fetchRepoContent("src/components/ui/calendar.tsx")
   const content = atob((await response.json())?.response?.data?.content)
 
   return (

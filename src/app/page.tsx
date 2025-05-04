@@ -45,7 +45,7 @@ export default function Home() {
           version 9, which is not compatible with the current shadcn date picker
           component.
           <br />
-          In the demo above, notice that you can click on the moth label at the
+          In the demo above, notice that you can click on the month label at the
           top to change the view to years.
         </p>
       </section>

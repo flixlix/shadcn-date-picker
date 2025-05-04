@@ -113,6 +113,7 @@ export default [
             "src/utils/**/*",
             "src/server/**/*",
             "src/providers/**/*",
+            "src/registry/**/*",
             "src/config/**/*",
             "src/tests/**/*",
             "src/tasks/**/*",

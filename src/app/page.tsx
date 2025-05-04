@@ -256,7 +256,7 @@ export default function Home() {
                 </p>
               </div>
               <Button
-                className="bg-[#ff5f5f] text-destructive-foreground hover:bg-[#ff5f5f]"
+                className="mt-2 bg-[#ff5f5f] text-destructive-foreground hover:bg-[#ff5f5f]"
                 asChild
               >
                 <Link

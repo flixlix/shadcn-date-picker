@@ -23,13 +23,13 @@ const COMMANDS = {
 export default function CopyCommand() {
   const { pm, setPackageManager } = usePM()
   return (
-    <div className="relative mt-2 max-h-[650px] overflow-x-auto rounded-xl bg-zinc-950 dark:bg-zinc-900">
+    <div className="relative mt-2 max-h-[650px] overflow-x-auto rounded-xl bg-zinc-950 dark:border dark:bg-stone-950">
       <CardContent className="px-0 py-0 font-mono">
         <Tabs
           defaultValue={pm}
           onValueChange={(value) => setPackageManager(value as PackageManager)}
         >
-          <div className="relative flex items-center justify-between border-b border-zinc-800 bg-zinc-900 px-3 pt-2.5">
+          <div className="relative flex items-center justify-between border-b border-zinc-800 bg-zinc-900 px-3 pt-2.5 dark:bg-stone-950">
             <TabsList className="inline-flex h-7 translate-y-[2px] items-center justify-center gap-3 rounded-lg bg-transparent p-0 pl-1 text-muted-foreground">
               {Object.keys(COMMANDS).map((key) => (
                 <TabsTrigger

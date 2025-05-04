@@ -4,7 +4,7 @@ import Link from "next/link"
 import { fetchRepoContent } from "../lib/fetch-repo-content"
 import SyntaxHighlighter from "./syntax-highlighter"
 
-const path = "features/date-picker/date-range-picker.tsx"
+const path = "src/features/date-picker/date-range-picker.tsx"
 
 export default async function RangePickerCode() {
   const response = await fetchRepoContent(path).catch(

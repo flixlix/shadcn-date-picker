@@ -24,7 +24,7 @@ const Timeline = React.forwardRef<HTMLUListElement, TimelineProps>(
   ({ children, className, positions, ...props }, ref) => {
     return (
       <ul
-        className={cn(timelineVariants({ positions }), className)}
+        className={timelineVariants({ positions, className })}
         ref={ref}
         {...props}
       >

@@ -1,0 +1,39 @@
+{
+    "$schema": "https://ui.shadcn.com/schema/registry.json",
+    "name": "shadcn-date-picker",
+    "homepage": "https://date-picker.luca-felix.com",
+    "title": "Advanced Shadcn Date Picker",
+    "description": "This custom shadcn component aims to provide a more advanced alternative to the default date picker component. It is built on top of the react-day-picker library, which provides a wide range of customization options.",
+    "author": "Luca Félix <luca.ziegler.felix@gmail.com>",
+    "dependencies": [
+        "date-fns",
+        "lucide-react",
+        "react-day-picker@9.5.0"
+    ],
+    "items": [
+        {
+            "name": "date-picker",
+            "type": "registry:component",
+            "title": "Date Picker",
+            "description": "Overwrite the default calendar component with fixed styles for `react-day-picker` v9 and above.",
+            "registryDependencies": [
+                "button",
+                "popover"
+            ],
+            "files": [
+                {
+                    "path": "src/registry/new-york/components/ui/calendar.tsx",
+                    "type": "registry:component"
+                },
+                {
+                    "path": "src/registry/new-york/components/date-picker/date-picker.tsx",
+                    "type": "registry:component"
+                },
+                {
+                    "path": "src/registry/new-york/components/date-picker/date-range-picker.tsx",
+                    "type": "registry:component"
+                }
+            ]
+        }
+    ]
+}

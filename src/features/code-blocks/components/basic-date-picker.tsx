@@ -4,7 +4,7 @@ import Link from "next/link"
 import { fetchRepoContent } from "../lib/fetch-repo-content"
 import SyntaxHighlighter from "./syntax-highlighter"
 
-const path = "src/features/date-picker/date-picker.tsx"
+const path = "src/registry/new-york/components/date-picker/date-picker.tsx"
 
 export default async function DatePickerCode() {
   const response = await fetchRepoContent(path).catch(
@@ -21,7 +21,7 @@ export default async function DatePickerCode() {
           Alternatively, you can view this demo code in the{" "}
           <Link
             target="_blank"
-            href={`https://github.com/flixlix/shadcn-date-picker/blob/main/src/${path}`}
+            href={`https://github.com/flixlix/shadcn-date-picker/blob/main/${path}`}
           >
             repository
           </Link>
